@@ -1,0 +1,22 @@
+Low-Memory RNA-Seq Pipeline
+
+A lightweight, end-to-end RNA-Seq analysis pipeline optimized for low-memory machines (<8GB RAM). This bash script performs:
+
+Streaming SRA download and conversion to FASTQ using fasterq-dump
+Quality control with FastQC
+Read alignment to GRCh38 using HISAT2
+Gene-level read counting with featureCounts
+Merging counts into a single matrix with Python
+Differential expression analysis and KEGG pathway enrichment with Python (scipy + gseapy)
+
+The pipeline is fully automated, handles reference genome download and indexing, and avoids storing large intermediate files to save memory.
+
+Output:
+
+Aligned BAM files (aligned/)
+Gene counts per sample (counts/)
+Merged count matrix (counts/counts_merged.txt)
+Differentially expressed genes (DEG_results.csv)
+KEGG enrichment results (KEGG_results/)
+
+Designed for quick deployment on low-resource systems without sacrificing standard RNA-Seq workflow steps.
